@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Potential Analyzer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Solar Potential Analyzer</h1>
+    
+    <div class="container">
+        <h2>Input Settings</h2>
+        <div class="form-group">
+            <label for="csvFile">Upload CSV file</label>
+            <input type="file" id="csvFile" accept=".csv">
+        </div>
+        
+        <div class="form-group">
+            <label for="batchSize">Batch Size 1-100 (default at 5)</label>
+            <input type="number" id="batchSize" value="5" min="1" max="100">
+        </div>
+        
+        <button id="analyzeBtn">Analyze Solar Potential</button>
+    </div>
+    
+    <div id="progressContainer" class="container">
+        <h2>Processing Status</h2>
+        <div id="progress">
+            <div id="progressBar"></div>
+        </div>
+        <div id="status">Waiting to start...</div>
+    </div>
+    
+    <div id="resultsContainer" class="container">
+        <h2>Results</h2>
+        
+        <div class="results-container">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>Address</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Max Panels</th>
+                        <th>Max Area (m²)</th>
+                        <th>Sunshine Hours</th>
+                        <th>Install Cost ($)</th>
+                        <th>Annual Energy (kWh)</th>
+                        <th>Annual Savings ($)</th>
+                        <th>Payback Period (yrs)</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody"></tbody>
+            </table>
+        </div>
+        
+        <div class="result-buttons">
+            <button id="downloadCsvBtn">Download Results as CSV</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
